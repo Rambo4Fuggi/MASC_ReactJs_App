@@ -20,7 +20,7 @@
 FROM node AS build
 WORKDIR /app
 COPY . .
-RUN npm install && npm run build
+RUN npm install && npm run build && ls /app
 
 FROM nginx
 COPY --from=build /app/build /usr/share/nginx/html
